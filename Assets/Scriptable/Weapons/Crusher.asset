@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2abc8bc3139008949a10eca5abb629eb, type: 3}
+  m_Name: Crusher
+  m_EditorClassIdentifier: 
+  type: 1
+  icon: {fileID: 21300000, guid: e67e11d800ebc144b9a0a05702c468e4, type: 3}
+  itemDescription: ' A massive blunt weapon designed to smash bones and armor with
+    devastating force. Often used by berserkers and brutes.'
+  buyingPrice: 320
+  sellingPrice: 190
+  weight: 6
+  quantity: 4
+  rarity: 3
