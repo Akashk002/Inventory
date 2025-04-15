@@ -1,1 +1,1 @@
-# Inventory
+Designed and implemented a complete inventory and shop system using Singleton and Observer design patterns. Players can purchase items from the shop, which are added to their inventory, and sell items from the inventory back to the shop. The system handles item transfers and real-time coin updates, ensuring smooth interaction between shop and inventory components.
