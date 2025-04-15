@@ -18,6 +18,6 @@ MonoBehaviour:
     health.
   buyingPrice: 160
   sellingPrice: 100
-  weight: 2
+  weight: 8
   quantity: 5
   rarity: 3

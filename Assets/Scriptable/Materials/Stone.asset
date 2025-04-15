@@ -18,6 +18,6 @@ MonoBehaviour:
     sharpening weapons.
   buyingPrice: 35
   sellingPrice: 20
-  weight: 2
+  weight: 8
   quantity: 30
   rarity: 1

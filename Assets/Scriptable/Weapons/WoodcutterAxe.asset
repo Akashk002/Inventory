@@ -18,6 +18,6 @@ MonoBehaviour:
     repurposed into a brutal weapon of survival.
   buyingPrice: 150
   sellingPrice: 90
-  weight: 3
+  weight: 12
   quantity: 8
   rarity: 1

@@ -18,6 +18,6 @@ MonoBehaviour:
     to find and perfect for quick recovery.
   buyingPrice: 10
   sellingPrice: 5
-  weight: 1
+  weight: 4
   quantity: 30
   rarity: 0

@@ -4,81 +4,89 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class ItemInfoManager : MonoBehaviour
+public class ItemInfoHandler : MonoBehaviour
 {
-    [SerializeField] SlotView selectedSlot;
-    InventoryItem selectedInventoryItem;
+    [SerializeField] Slot selectedSlot;
     [SerializeField] Image itemImage;
     [SerializeField] TMP_Text itemName;
     [SerializeField] TMP_Text itemDescription;
-    [SerializeField] TMP_Text itemBuyPrice;
-    [SerializeField] TMP_Text itemSellPrice;
+    [SerializeField] TMP_Text itemPrice;
     [SerializeField] TMP_Text itemWeight;
     [SerializeField] TMP_Text itemQuantity;
     [SerializeField] TMP_Text itemRarity;
     [SerializeField] TMP_Text setQuantity;
     [SerializeField] TMP_Text totalPrice;
+    InventoryItem selectedInventoryItem;
     int currentQuantity = 1;
 
     private void OnEnable()
     {
-        GameAction.OnSlotSelect += OpenInventoryItemInfoPanel;
+        EventService.Instance.OnSlotSelect.AddListener(OpenInventoryItemInfoPanel);
     }
     private void OnDisable()
     {
-        GameAction.OnSlotSelect -= OpenInventoryItemInfoPanel;
+        EventService.Instance.OnSlotSelect.RemoveListener(OpenInventoryItemInfoPanel);
         if (selectedSlot) selectedSlot.DisableSelectionBox();
     }
 
-    public void OpenInventoryItemInfoPanel(SlotView slotView)
+    public void OpenInventoryItemInfoPanel(Slot slot)
     {
+        if (slot.GetInventoryItem() == null && slot.GetItemQuantity() <= 0) return;
         if (selectedSlot) selectedSlot.DisableSelectionBox();
 
-        selectedSlot = slotView;
-        selectedInventoryItem = slotView.GetInventoryItem();
+        selectedSlot = slot;
+        selectedInventoryItem = slot.GetInventoryItem();
 
         if (selectedSlot)
         {
+            currentQuantity = 1;
             int price = (selectedSlot.GetSlotType() == SlotType.Shop) ? selectedInventoryItem.buyingPrice : selectedInventoryItem.sellingPrice ;
             itemImage.sprite = selectedInventoryItem.icon;
             itemName.text = selectedInventoryItem.name;
             itemDescription.text = selectedInventoryItem.itemDescription;
-            itemBuyPrice.text = price.ToString();
-            itemSellPrice.text = price.ToString();
+            itemPrice.text = price.ToString();
             itemWeight.text = selectedInventoryItem.weight.ToString();
-            itemQuantity.text = selectedInventoryItem.quantity.ToString();
+            itemQuantity.text = selectedSlot.GetItemQuantity().ToString();
             itemRarity.text = selectedInventoryItem.rarity.ToString();
-            currentQuantity = 1;
             setQuantity.text = currentQuantity.ToString();
             totalPrice.text = price.ToString();
             selectedSlot.EnableSelectionBox();
         }
     }
 
-    public void DecreaseQuantity()
+    public void DecreaseItemQuantity()
     {
-        if (selectedInventoryItem && currentQuantity > 1 && selectedInventoryItem.quantity > 0)
+        if (selectedInventoryItem && currentQuantity > 1 && selectedSlot.GetItemQuantity() > 0)
         {
             int price = (selectedSlot.GetSlotType() == SlotType.Shop) ? selectedInventoryItem.buyingPrice : selectedInventoryItem.sellingPrice;
             currentQuantity--;
             setQuantity.text = currentQuantity.ToString();
             totalPrice.text = (selectedInventoryItem.buyingPrice * currentQuantity).ToString();
+            AudioManager.Instance.PlayClickSound();
         }
     }
 
-    public void IncreaseQuantity()
+    public void IncreaseItemQuantity()
     {   
-        if (selectedInventoryItem && currentQuantity < selectedInventoryItem.quantity && selectedInventoryItem.quantity > 0)
+        if (selectedInventoryItem && currentQuantity < selectedSlot.GetItemQuantity() && selectedSlot.GetItemQuantity() > 0)
         {
             int price = (selectedSlot.GetSlotType() == SlotType.Shop) ? selectedInventoryItem.buyingPrice : selectedInventoryItem.sellingPrice;
             currentQuantity++;
             setQuantity.text = currentQuantity.ToString();
             totalPrice.text = (price * currentQuantity).ToString();
+            AudioManager.Instance.PlayClickSound();
         }
     }
 
-    public void OnBuyOrSellItem()
+    public void OnBuyItem()
     {
-        GameAction.OnBuyOrSellItem?.Invoke(selectedSlot, currentQuantity);
+        EventService.Instance.OnBuyItem.InvokeEvent(selectedSlot, currentQuantity);
+        AudioManager.Instance.PlayClickSound();
     }
+
+    public void OnSellItem()
+    {
+        EventService.Instance.OnSellItem.InvokeEvent(selectedSlot, currentQuantity);
+        AudioManager.Instance.PlayClickSound();
+    }  
 }

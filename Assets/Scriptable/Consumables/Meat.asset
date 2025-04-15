@@ -18,6 +18,6 @@ MonoBehaviour:
     satisfies hunger.
   buyingPrice: 45
   sellingPrice: 25
-  weight: 2
+  weight: 8
   quantity: 12
   rarity: 1

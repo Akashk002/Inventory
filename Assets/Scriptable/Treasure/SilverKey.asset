@@ -18,6 +18,6 @@ MonoBehaviour:
     valuable rewards.
   buyingPrice: 300
   sellingPrice: 180
-  weight: 2
+  weight: 8
   quantity: 20
   rarity: 2

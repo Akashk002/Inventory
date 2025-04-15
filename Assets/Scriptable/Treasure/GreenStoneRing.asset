@@ -18,6 +18,6 @@ MonoBehaviour:
     nature-based abilities.'
   buyingPrice: 380
   sellingPrice: 220
-  weight: 1
+  weight: 4
   quantity: 15
   rarity: 3

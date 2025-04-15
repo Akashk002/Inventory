@@ -18,6 +18,6 @@ MonoBehaviour:
     armor.
   buyingPrice: 120
   sellingPrice: 70
-  weight: 3
+  weight: 12
   quantity: 15
   rarity: 2

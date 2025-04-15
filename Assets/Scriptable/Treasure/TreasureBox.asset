@@ -18,6 +18,6 @@ MonoBehaviour:
     or rare items. Often locked.
   buyingPrice: 1200
   sellingPrice: 700
-  weight: 5
+  weight: 20
   quantity: 2
   rarity: 4

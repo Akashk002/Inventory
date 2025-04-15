@@ -18,6 +18,6 @@ MonoBehaviour:
     speed, and deadly precision in skilled hands.
   buyingPrice: 500
   sellingPrice: 300
-  weight: 3
+  weight: 12
   quantity: 2
   rarity: 4

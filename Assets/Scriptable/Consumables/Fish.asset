@@ -18,6 +18,6 @@ MonoBehaviour:
     amount of stamina and health.
   buyingPrice: 35
   sellingPrice: 18
-  weight: 2
+  weight: 8
   quantity: 15
   rarity: 1

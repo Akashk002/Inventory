@@ -18,6 +18,6 @@ MonoBehaviour:
     at bay while maintaining a safe distance.
   buyingPrice: 250
   sellingPrice: 150
-  weight: 5
+  weight: 20
   quantity: 5
   rarity: 2

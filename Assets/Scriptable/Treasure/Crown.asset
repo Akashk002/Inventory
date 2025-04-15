@@ -18,6 +18,6 @@ MonoBehaviour:
     gems, it represents power and wealth.
   buyingPrice: 800
   sellingPrice: 480
-  weight: 3
+  weight: 12
   quantity: 3
   rarity: 4

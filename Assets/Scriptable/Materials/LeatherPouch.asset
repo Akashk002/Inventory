@@ -18,6 +18,6 @@ MonoBehaviour:
     herbs, or other small items.
   buyingPrice: 45
   sellingPrice: 25
-  weight: 2
+  weight: 8
   quantity: 25
   rarity: 1

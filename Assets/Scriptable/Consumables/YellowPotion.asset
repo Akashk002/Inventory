@@ -18,6 +18,6 @@ MonoBehaviour:
     for a short duration.
   buyingPrice: 120
   sellingPrice: 70
-  weight: 2
+  weight: 8
   quantity: 6
   rarity: 2

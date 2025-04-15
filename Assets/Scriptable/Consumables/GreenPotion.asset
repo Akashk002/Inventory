@@ -18,6 +18,6 @@ MonoBehaviour:
     over time.
   buyingPrice: 100
   sellingPrice: 60
-  weight: 2
+  weight: 8
   quantity: 8
   rarity: 2

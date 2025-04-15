@@ -18,6 +18,6 @@ MonoBehaviour:
     or story importance.
   buyingPrice: 600
   sellingPrice: 350
-  weight: 2
+  weight: 8
   quantity: 2
   rarity: 4

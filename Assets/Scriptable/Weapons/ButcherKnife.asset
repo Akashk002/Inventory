@@ -18,6 +18,6 @@ MonoBehaviour:
     into a vicious close-range weapon with deadly slicing power.
   buyingPrice: 90
   sellingPrice: 50
-  weight: 2
+  weight: 8
   quantity: 12
   rarity: 1

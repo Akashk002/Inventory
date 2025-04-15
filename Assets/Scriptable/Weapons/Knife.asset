@@ -18,6 +18,6 @@ MonoBehaviour:
     Ideal for assassins or fast-moving fighters.
   buyingPrice: 50
   sellingPrice: 30
-  weight: 1
+  weight: 4
   quantity: 15
   rarity: 0
