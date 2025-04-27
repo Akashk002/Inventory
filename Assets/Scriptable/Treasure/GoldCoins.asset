@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2abc8bc3139008949a10eca5abb629eb, type: 3}
   m_Name: GoldCoins
   m_EditorClassIdentifier: 
+  Name: 26
   type: 3
   icon: {fileID: 21300000, guid: 93b5b28db06f8d2439c780ec3aeb28d2, type: 3}
   itemDescription: ' Currency made of pure gold. Accepted by nearly all merchants

@@ -1,27 +1,11 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AudioManager : MonoBehaviour
+public class AudioManager : GenericMonoSingleton<AudioManager>
 {
     [SerializeField] private AudioSource audioSFX;
-    private static AudioManager instance;
     [SerializeField] private List<Sound> sounds = new List<Sound>();
-    public static AudioManager Instance { get { return instance; } }
     [SerializeField] private bool isMute;
-
-    private void Awake()
-    {
-        if (!instance)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
 
     public void Play(SoundType soundType)
     {

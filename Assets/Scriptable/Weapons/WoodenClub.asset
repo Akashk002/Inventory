@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2abc8bc3139008949a10eca5abb629eb, type: 3}
   m_Name: WoodenClub
   m_EditorClassIdentifier: 
+  Name: 47
   type: 1
   icon: {fileID: 21300000, guid: dc038b2ab22c65c4488779487c9dae97, type: 3}
   itemDescription: A crude weapon made from a heavy branch or log. Simple but effective,

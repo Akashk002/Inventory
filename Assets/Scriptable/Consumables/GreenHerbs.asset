@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2abc8bc3139008949a10eca5abb629eb, type: 3}
   m_Name: GreenHerbs
   m_EditorClassIdentifier: 
+  Name: 5
   type: 2
   icon: {fileID: 21300000, guid: 4f83da16a2d475f42a8fb81cd908c3fd, type: 3}
   itemDescription: Rare medicinal herbs that cure minor ailments and improve natural

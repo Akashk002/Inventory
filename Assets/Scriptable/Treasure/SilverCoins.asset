@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2abc8bc3139008949a10eca5abb629eb, type: 3}
   m_Name: SilverCoins
   m_EditorClassIdentifier: 
+  Name: 32
   type: 3
   icon: {fileID: 21300000, guid: 401e0dc6359ba784fbe939a1148487cf, type: 3}
   itemDescription: Common currency made of silver. Widely circulated and often found

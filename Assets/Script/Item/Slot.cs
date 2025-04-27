@@ -1,17 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
 public class Slot : MonoBehaviour
 {
-    [SerializeField] SlotType slotType;
-    [SerializeField] Image itemImage;
-    [SerializeField] Image selectioxBox;
-    [SerializeField] TMP_Text itemQuantityText;
-    [SerializeField] InventoryItem inventoryItem;
-     int itemQuantity;
+    [SerializeField] private SlotType slotType;
+    [SerializeField] private Image itemImage;
+    [SerializeField] private Image selectioxBox;
+    [SerializeField] private TMP_Text itemQuantityText;
+    [SerializeField] private InventoryItem inventoryItem;
+    private int itemQuantity;
 
     // Start is called before the first frame update
     void Start()
@@ -34,19 +32,19 @@ public class Slot : MonoBehaviour
         }
     }
 
-    public void AddNewItemInSlot(InventoryItem Inventoryitem,int quantity)
+    public void AddNewItemInSlot(InventoryItem Inventoryitem, int quantity)
     {
         inventoryItem = Inventoryitem;
         itemQuantity = quantity;
         UpdateSlot();
-    } 
-    
+    }
+
     public void AddSameItemInSlot(int quantity)
     {
         itemQuantity += quantity;
         UpdateSlot();
     }
-    
+
     public int GetItemQuantity()
     {
         return itemQuantity;
@@ -94,4 +92,14 @@ public class Slot : MonoBehaviour
         }
         UpdateSlot();
     }
+}
+
+[System.Serializable]
+public enum SlotType
+{
+    Materials = 0,
+    Weapons = 1,
+    Consumables = 2,
+    Treasure = 3,
+    Inventory = 4
 }

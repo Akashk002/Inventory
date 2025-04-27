@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2abc8bc3139008949a10eca5abb629eb, type: 3}
   m_Name: WoodenStick
   m_EditorClassIdentifier: 
+  Name: 22
   type: 0
   icon: {fileID: 21300000, guid: 985522aa310769847adff8a288ac92ca, type: 3}
   itemDescription: A simple but essential component used in crafting basic tools

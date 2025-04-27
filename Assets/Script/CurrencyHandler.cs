@@ -1,26 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class CurrencyHandler : MonoBehaviour
+public class CurrencyHandler : GenericMonoSingleton<CurrencyHandler>
 {
-    private static CurrencyHandler instance;
-    public static CurrencyHandler Instance { get { return instance; } }
-    [SerializeField] TMP_Text coinText;
-    int coin;
+    [SerializeField] private TMP_Text coinText;
+    private int coin;
 
     private void Start()
     {
-        if (instance == null)
-        {
-            instance = this;
-            UpdateCoinText(coin);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+       UpdateCoinText(coin);
     }
 
     public int GetCoin()
@@ -34,7 +22,10 @@ public class CurrencyHandler : MonoBehaviour
     }
     public void SpentCoin(int itemCost)
     {
-        if (coin == 0 || itemCost > coin) return;
+        if (coin == 0 || itemCost > coin)
+        {
+            return;
+        }
 
         coin -= itemCost;
         UpdateCoinText(coin);

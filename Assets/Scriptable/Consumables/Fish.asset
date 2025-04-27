@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2abc8bc3139008949a10eca5abb629eb, type: 3}
   m_Name: Fish
   m_EditorClassIdentifier: 
+  Name: 3
   type: 2
   icon: {fileID: 21300000, guid: 4500c5f58ef70d64e8f89b8e342a1b6a, type: 3}
   itemDescription: A healthy source of nourishment. When cooked, restores a moderate

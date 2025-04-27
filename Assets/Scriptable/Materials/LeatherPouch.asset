@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2abc8bc3139008949a10eca5abb629eb, type: 3}
   m_Name: LeatherPouch
   m_EditorClassIdentifier: 
+  Name: 16
   type: 0
   icon: {fileID: 21300000, guid: 098c04e31cd452146be0441cc6f3ae86, type: 3}
   itemDescription: A small bag made of animal hide, often used for storing coins,

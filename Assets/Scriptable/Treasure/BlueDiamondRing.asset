@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2abc8bc3139008949a10eca5abb629eb, type: 3}
   m_Name: BlueDiamondRing
   m_EditorClassIdentifier: 
+  Name: 24
   type: 3
   icon: {fileID: 21300000, guid: 5c43af9fc8739294f87141681bbafcb3, type: 3}
   itemDescription: A luxurious ring adorned with a rare blue diamond. Highly valuable

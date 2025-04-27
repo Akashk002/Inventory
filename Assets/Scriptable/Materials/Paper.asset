@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2abc8bc3139008949a10eca5abb629eb, type: 3}
   m_Name: Paper
   m_EditorClassIdentifier: 
+  Name: 17
   type: 0
   icon: {fileID: 21300000, guid: 0a4e4ed28cc111a418bd671fe19adab0, type: 3}
   itemDescription: A lightweight material used for scrolls, maps, and crafting magical

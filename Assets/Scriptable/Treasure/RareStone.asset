@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2abc8bc3139008949a10eca5abb629eb, type: 3}
   m_Name: RareStone
   m_EditorClassIdentifier: 
+  Name: 34
   type: 3
   icon: {fileID: 21300000, guid: 061cd6b08f86bc04c93dda20292077fc, type: 3}
   itemDescription: A seemingly ordinary stone. May have hidden magical properties

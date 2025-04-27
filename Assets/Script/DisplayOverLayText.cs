@@ -1,12 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class DisplayOverLayText : MonoBehaviour
+public class DisplayOverlayText : MonoBehaviour
 {
-    [SerializeField] TMP_Text OverlayText;
-    [SerializeField] string buyFailedByCoin,buyfailedByInventoryWeight;
+    [SerializeField] private TMP_Text OverlayText;
+    [SerializeField] private string buyFailedByCoin;
+    [SerializeField] private string buyfailedByInventoryWeight;
 
     private void OnEnable()
     {
@@ -21,14 +20,14 @@ public class DisplayOverLayText : MonoBehaviour
         EventService.Instance.OnBuyFailed.RemoveListener(UpdateTextOnBuyFailed);
     }
 
-    void UpdateTextOnBuyItem(InventoryItem inventoryItem, int quantity)
+    private void UpdateTextOnBuyItem(InventoryItem inventoryItem, int quantity)
     {
         OverlayText.enabled = true;
-        OverlayText.text = $"You bought {quantity} {inventoryItem.name}";
+        OverlayText.text = $"You bought {quantity} {inventoryItem.Name}";
         OverlayText.color = Color.green;
         Invoke(nameof(DisableOverLayText), 2f);
     }
-    void UpdateTextOnSellItem(InventoryItem inventoryItem, int quantity)
+    private void UpdateTextOnSellItem(InventoryItem inventoryItem, int quantity)
     {
         OverlayText.enabled = true;
         OverlayText.text = $"You gained {inventoryItem.sellingPrice * quantity} coins";
@@ -36,7 +35,7 @@ public class DisplayOverLayText : MonoBehaviour
         Invoke(nameof(DisableOverLayText), 2f);
     } 
     
-    void UpdateTextOnBuyFailed(BuyFailedType buyFailedType)
+    private void UpdateTextOnBuyFailed(BuyFailedType buyFailedType)
     {
         string failedText = (buyFailedType == BuyFailedType.Coin) ? buyFailedByCoin : buyfailedByInventoryWeight;
         AudioManager.Instance.Play(SoundType.BuyFailed);
@@ -46,8 +45,15 @@ public class DisplayOverLayText : MonoBehaviour
         Invoke(nameof(DisableOverLayText), 3f);
     }
 
-    void DisableOverLayText()
+    private void DisableOverLayText()
     {
         OverlayText.enabled = false;
     }
+}
+
+[System.Serializable]
+public enum BuyFailedType
+{
+    Coin,
+    InventoryWeight
 }

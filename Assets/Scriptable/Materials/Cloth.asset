@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2abc8bc3139008949a10eca5abb629eb, type: 3}
   m_Name: Cloth
   m_EditorClassIdentifier: 
+  Name: 13
   type: 0
   icon: {fileID: 21300000, guid: 9d7e931295e92b8419dde467e5f709b8, type: 3}
   itemDescription: Basic but useful material for crafting clothing, armor padding,
