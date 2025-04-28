@@ -1,19 +1,6 @@
 using System;
 public class EventService 
 {
-    private static EventService instance;
-    public static EventService Instance
-    {
-        get
-        {
-            if (instance == null)
-            {
-                instance = new EventService();
-            }
-            return instance;
-        }
-    }
-
     public EventController<Slot> OnSlotSelect { get; private set; }
 
     public EventController<Slot,int> OnBuyItem { get; private set; }
@@ -21,6 +8,7 @@ public class EventService
     public EventController<BuyFailedType> OnBuyFailed { get; private set; }
     public EventController<InventoryItem, int> OnConfirmBuyItem { get; private set; }
     public EventController<InventoryItem, int> OnConfirmSellItem { get; private set; }
+    public EventController<InventoryItem, int> OnAddResourceInInventory { get; private set; }
 
     public EventService()
     {
@@ -30,6 +18,7 @@ public class EventService
         OnBuyFailed = new EventController<BuyFailedType>();
         OnConfirmBuyItem = new EventController<InventoryItem,int>();
         OnConfirmSellItem = new EventController<InventoryItem, int>();
+        OnAddResourceInInventory = new EventController<InventoryItem, int>();
 
     }
 }

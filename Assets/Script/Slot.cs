@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections.Generic;
 
 public class Slot : MonoBehaviour
 {
@@ -61,7 +62,7 @@ public class Slot : MonoBehaviour
 
     public void OnSelectSlot()
     {
-        EventService.Instance.OnSlotSelect.InvokeEvent(this);
+        GameService.Instance.GetEventService().OnSlotSelect.InvokeEvent(this);
     }
 
     public SlotType GetSlotType()
@@ -102,4 +103,11 @@ public enum SlotType
     Consumables = 2,
     Treasure = 3,
     Inventory = 4
+}
+
+[System.Serializable]
+public class SlotList
+{
+    public SlotType slotType;
+    public List<Slot> slotList;
 }

@@ -3,18 +3,18 @@ using UnityEngine;
 
 public class ItemInfoPanelHandler : MonoBehaviour
 {
-    [SerializeField] private ItemInfoHandler ItemBuyPanel, ItemSellPanel ;
+    [SerializeField] private ItemInfoHandler ItemBuyPanel, ItemSellPanel;
     [SerializeField] private GameObject ItemDealConfirmationPanel;
     [SerializeField] private TMP_Text confirmationText;
 
-    private void OnEnable()
+    public void SubscribeEvent()
     {
-        EventService.Instance.OnSlotSelect.AddListener(OpenItemInfoPanel);
+        GameService.Instance.GetEventService().OnSlotSelect.AddListener(OpenItemInfoPanel);
     }
 
     private void OnDisable()
     {
-        EventService.Instance.OnSlotSelect.RemoveListener(OpenItemInfoPanel);
+        GameService.Instance.GetEventService().OnSlotSelect.RemoveListener(OpenItemInfoPanel);
     }
 
     private void OpenItemInfoPanel(Slot slot)
@@ -33,7 +33,7 @@ public class ItemInfoPanelHandler : MonoBehaviour
                 ItemSellPanel.OpenInventoryItemInfoPanel(slot);
             }
 
-            AudioManager.Instance.Play(SoundType.SelectSlot);
+            GameService.Instance.GetAudioService().Play(SoundType.SelectSlot);
         }
     }
 

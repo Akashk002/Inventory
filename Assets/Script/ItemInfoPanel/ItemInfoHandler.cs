@@ -4,7 +4,6 @@ using TMPro;
 
 public class ItemInfoHandler : MonoBehaviour
 {
-    [SerializeField] private Slot selectedSlot;
     [SerializeField] private Image itemImage;
     [SerializeField] private TMP_Text itemName;
     [SerializeField] private TMP_Text itemDescription;
@@ -14,16 +13,17 @@ public class ItemInfoHandler : MonoBehaviour
     [SerializeField] private TMP_Text itemRarity;
     [SerializeField] private TMP_Text setQuantity;
     [SerializeField] private TMP_Text totalPrice;
+    private Slot selectedSlot;
     private InventoryItem selectedInventoryItem;
     private int currentQuantity = 1;
 
     private void OnEnable()
     {
-        EventService.Instance.OnSlotSelect.AddListener(OpenInventoryItemInfoPanel);
+        GameService.Instance.GetEventService().OnSlotSelect.AddListener(OpenInventoryItemInfoPanel);
     }
     private void OnDisable()
     {
-        EventService.Instance.OnSlotSelect.RemoveListener(OpenInventoryItemInfoPanel);
+        GameService.Instance.GetEventService().OnSlotSelect.RemoveListener(OpenInventoryItemInfoPanel);
         if (selectedSlot) selectedSlot.DisableSelectionBox();
     }
 
@@ -38,7 +38,7 @@ public class ItemInfoHandler : MonoBehaviour
         if (selectedSlot)
         {
             currentQuantity = 1;
-            int price = (selectedSlot.GetSlotType() != SlotType.Inventory) ? selectedInventoryItem.buyingPrice : selectedInventoryItem.sellingPrice ;
+            int price = (selectedSlot.GetSlotType() != SlotType.Inventory) ? selectedInventoryItem.buyingPrice : selectedInventoryItem.sellingPrice;
             itemImage.sprite = selectedInventoryItem.icon;
             itemName.SetText(selectedInventoryItem.Name.ToString());
             itemDescription.SetText(selectedInventoryItem.itemDescription);
@@ -60,31 +60,31 @@ public class ItemInfoHandler : MonoBehaviour
             currentQuantity--;
             setQuantity.SetText(currentQuantity.ToString());
             totalPrice.SetText((selectedInventoryItem.buyingPrice * currentQuantity).ToString());
-            AudioManager.Instance.PlayClickSound();
+            GameService.Instance.GetAudioService().PlayClickSound();
         }
     }
 
     public void IncreaseItemQuantity()
-    {   
+    {
         if (selectedInventoryItem && currentQuantity < selectedSlot.GetItemQuantity() && selectedSlot.GetItemQuantity() > 0)
         {
             int price = (selectedSlot.GetSlotType() != SlotType.Inventory) ? selectedInventoryItem.buyingPrice : selectedInventoryItem.sellingPrice;
             currentQuantity++;
             setQuantity.SetText(currentQuantity.ToString());
             totalPrice.SetText((price * currentQuantity).ToString());
-            AudioManager.Instance.PlayClickSound();
+            GameService.Instance.GetAudioService().PlayClickSound();
         }
     }
 
     public void OnBuyItem()
     {
-        EventService.Instance.OnBuyItem.InvokeEvent(selectedSlot, currentQuantity);
-        AudioManager.Instance.PlayClickSound();
+        GameService.Instance.GetEventService().OnBuyItem.InvokeEvent(selectedSlot, currentQuantity);
+        GameService.Instance.GetAudioService().PlayClickSound();
     }
 
     public void OnSellItem()
     {
-        EventService.Instance.OnSellItem.InvokeEvent(selectedSlot, currentQuantity);
-        AudioManager.Instance.PlayClickSound();
-    }  
+        GameService.Instance.GetEventService().OnSellItem.InvokeEvent(selectedSlot, currentQuantity);
+        GameService.Instance.GetAudioService().PlayClickSound();
+    }
 }
